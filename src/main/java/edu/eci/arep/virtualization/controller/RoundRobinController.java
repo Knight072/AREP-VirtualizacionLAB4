@@ -23,6 +23,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+/**
+ * Round Robin controller
+ * @author Andrés Arias
+ */
 @RestController
 @RequestMapping("/app")
 public class RoundRobinController {
@@ -31,13 +35,19 @@ public class RoundRobinController {
     private static final String USER_AGENT = "Mozilla/5.0";
 
     private List<String> logServiceUrls = Arrays.asList(
-            "http://localhost:35001/api/message",
-            "http://localhost:35002/api/message",
-            "http://localhost:35003/api/message"
+            "http://logservice1:8080/api/message",
+            "http://logservice2:8080/api/message",
+            "http://logservice3:8080/api/message"
     );
 
     private AtomicInteger index = new AtomicInteger(0);
 
+    /**
+     * Class to define de roundRobin methodology
+     * @param message message to send
+     * @return ResponseEntity<String>
+     * @throws IOException if there is an error
+     */
     @GetMapping("/round-robin")
     public ResponseEntity<String> sendMessage(@RequestParam String message) throws IOException {
 

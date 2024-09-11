@@ -14,6 +14,8 @@ services:
       - logservice1
       - logservice2
       - logservice3
+    networks:
+      - my-network
 
   logservice1:
     build:
@@ -21,9 +23,11 @@ services:
       dockerfile: DockerfileMessage
     container_name: logservice1
     environment:
-      - SERVER_PORT=35001
+      - SERVER_PORT=8080  # Internamente debe ser el mismo puerto para todos
     ports:
-      - "35001:35001"
+      - "35001:8080"  # El puerto interno debe ser 8080
+    networks:
+      - my-network
 
   logservice2:
     build:
@@ -31,9 +35,11 @@ services:
       dockerfile: DockerfileMessage
     container_name: logservice2
     environment:
-      - SERVER_PORT=35002
+      - SERVER_PORT=8080
     ports:
-      - "35002:35002"
+      - "35002:8080"
+    networks:
+      - my-network
 
   logservice3:
     build:
@@ -41,9 +47,11 @@ services:
       dockerfile: DockerfileMessage
     container_name: logservice3
     environment:
-      - SERVER_PORT=35003
+      - SERVER_PORT=8080
     ports:
-      - "35003:35003"
+      - "35003:8080"
+    networks:
+      - my-network
 
   mongodatabase:
     image: mongo:5.0.25-focal
@@ -54,7 +62,12 @@ services:
     ports:
       - "27017:27017"
     command: mongod
+    networks:
+      - my-network
 
 volumes:
   mongodb:
   mongodb_config:
+
+networks:
+  my-network:
