@@ -1,0 +1,60 @@
+version: '3'
+services:
+  lbroundrobbin:
+    build:
+      context: .
+      dockerfile: DockerfileRoundRobin
+    container_name: lbroundrobbin
+    environment:
+      - SERVER_PORT=8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodatabase
+      - logservice1
+      - logservice2
+      - logservice3
+
+  logservice1:
+    build:
+      context: .
+      dockerfile: DockerfileMessage
+    container_name: logservice1
+    environment:
+      - SERVER_PORT=35001
+    ports:
+      - "35001:35001"
+
+  logservice2:
+    build:
+      context: .
+      dockerfile: DockerfileMessage
+    container_name: logservice2
+    environment:
+      - SERVER_PORT=35002
+    ports:
+      - "35002:35002"
+
+  logservice3:
+    build:
+      context: .
+      dockerfile: DockerfileMessage
+    container_name: logservice3
+    environment:
+      - SERVER_PORT=35003
+    ports:
+      - "35003:35003"
+
+  mongodatabase:
+    image: mongo:5.0.25-focal
+    container_name: mongodatabase
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports:
+      - "27017:27017"
+    command: mongod
+
+volumes:
+  mongodb:
+  mongodb_config:

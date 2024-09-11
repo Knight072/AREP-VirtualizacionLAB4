@@ -1,0 +1,8 @@
+edu/eci/arep/virtualization/controller/MessageController.class
+edu/eci/arep/virtualization/repository/MessageRepository.class
+edu/eci/arep/virtualization/App.class
+edu/eci/arep/virtualization/model/Message.class
+edu/eci/arep/virtualization/controller/RoundRobinController$1.class
+edu/eci/arep/virtualization/service/MessageService.class
+edu/eci/arep/virtualization/controller/RoundRobinController.class
+edu/eci/arep/virtualization/VirtualizationApplication.class
