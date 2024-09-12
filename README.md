@@ -11,7 +11,8 @@ Este proyecto presenta un la aplicación web RoundRobin que utiliza varias tecno
 
 ### Cliente Servidor
 
-![!image01](https://github.com/user-attachments/assets/3478f8e6-f897-447c-a7df-93e554f5956b)
+![image](https://github.com/user-attachments/assets/3d212aa5-1117-4731-8b20-9153c1b81dd4)
+
 
 
 ## Componentes
