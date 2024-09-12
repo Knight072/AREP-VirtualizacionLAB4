@@ -86,6 +86,41 @@ El diagrama presenta una arquitectura de microservicios desplegada en una instan
 
 Esta arquitectura proporciona una base sólida para construir aplicaciones web escalables y resilientes. Sin embargo, la implementación específica puede variar dependiendo de los requisitos y las tecnologías utilizadas en cada proyecto.
 
+## Cómo comprender el funcionamiento de las funcionalidades requeridas
+
+### LogService
+Esta parte de la aplicación permite recibir las peticiones del round robin haciendo uso de las anotaciones `@GetMapping` y `@RequestParam`, a su vez guarda el mensaje en la base de datos y devuelve el historial de los últimos 10 mensajes :
+```bash
+   @GetMapping("/message")
+    public ResponseEntity<?> getMessage(@RequestParam String message) {
+        Message newMessage = new Message(message);
+        messageService.saveMessage(newMessage);
+        try{
+            return new ResponseEntity<>(messageService.getlastTenMessage(), HttpStatus.OK);
+        }catch(Exception e) {
+            return new ResponseEntity<>("{\"error\":\"Error al obtener los últimos 10 mensajes\"}", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+  ```
+![image02](https://github.com/user-attachments/assets/79235114-4f59-4718-93e9-daec68561ce8)
+
+### RoundRobin
+Esta parte de la aplicación permite hacer peticiones al logService haciendo uso de las anotaciones `@GetMapping` y `@RequestParam`, gestionando las solicitudes de manera equitativa entre las instancias de LogService:  :
+```bash
+   @GetMapping("/round-robin")
+    public ResponseEntity<String> sendMessage(@RequestParam String message) throws IOException {
+
+        int currentIndex = index.getAndUpdate(i -> (i + 1) % logServiceUrls.size());
+        String serviceUrl = logServiceUrls.get(currentIndex);
+
+        String urlWithParams = serviceUrl + "?message=" + URLEncoder.encode(message, StandardCharsets.UTF_8.toString());
+
+        URL url = new URL(urlWithParams);
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("User-Agent", USER_AGENT);
+        .........
+  ```
 ## Instalación y ejecución
 
 Para instalar y ejecutar esta aplicación, sigue los siguientes pasos:
@@ -115,6 +150,7 @@ Para ejecutar las pruebas, ejecute el siguiente comando:
 ```bash
 mvn test
 ```
+![image03](https://github.com/user-attachments/assets/6c98d119-3435-4a1e-bac1-e3a9a079e003)
 ## versionamiento
 
 ![AREP LAB 04](https://img.shields.io/badge/AREP_LAB_04-v1.0.0-blue)

@@ -43,6 +43,22 @@ public class RoundRobinController {
     private AtomicInteger index = new AtomicInteger(0);
 
     /**
+     * Getters for testing purposes
+     * @return logServiceUrls
+     */
+    public List<String> getLogServiceUrls() {
+        return logServiceUrls;
+    }
+
+    /**
+     * Getters for testing purposes
+     * @return index
+     */
+    public AtomicInteger getIndex() {
+        return index;
+    }
+
+    /**
      * Class to define de roundRobin methodology
      * @param message message to send
      * @return ResponseEntity<String>
