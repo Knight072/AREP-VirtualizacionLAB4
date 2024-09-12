@@ -35,11 +35,6 @@ public class MessageServiceTest {
         // Act
         messageService.saveMessage(message);
 
-        // Assert
-        // Since saveMessage method does not return anything,
-        // we can't assert directly. We should verify interactions with the mock.
-        // You can use verify if you want to check if the method was called.
-        // However, since the repository is mocked, this test is more of an integration test.
     }
 
     @Test
