@@ -69,7 +69,8 @@ Esta parte de la aplicación permite recibir las peticiones del round robin haci
         }
     }
   ```
-![image02](https://github.com/user-attachments/assets/79235114-4f59-4718-93e9-daec68561ce8)
+![image](https://github.com/user-attachments/assets/916a1fe2-454d-40e7-826f-0a5370a3e128)
+
 
 ### RoundRobin
 Esta parte de la aplicación permite hacer peticiones al logService haciendo uso de las anotaciones `@GetMapping` y `@RequestParam`, gestionando las solicitudes de manera equitativa entre las instancias de LogService:  :
