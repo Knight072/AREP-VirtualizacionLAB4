@@ -1,92 +1,118 @@
+:root {
+    --primary-color: #6200ee;
+    --secondary-color: #03dac6;
+    --background-color: #fafafa;
+    --text-color: #333333;
+    --error-color: #b00020;
+}
+
 body {
-    font-family: Arial, sans-serif; /* Cambia la fuente de todo el documento */
-    background-color: #d0d0d0; /* Color de fondo suave */
-    margin: 0; /* Elimina el margen predeterminado */
-    padding: 20px; /* Agrega un poco de espacio alrededor */
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .form-container {
-    flex: 2;
-    margin-right: 5%;
-    background-color: #ffffff; /* Fondo blanco para el formulario */
-    padding: 10px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
 h1 {
-    color: #333; /* Color del título */
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 label {
-    display: block; /* Asegura que las etiquetas ocupen el ancho completo */
-    margin-bottom: 8px; /* Espacio debajo de las etiquetas */
-    font-weight: bold; /* Hace las etiquetas más prominentes */
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 textarea {
-    width: 100%; /* Ancho completo para el área de texto */
-    height: 50px; /* Altura fija */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 4px; /* Bordes redondeados */
-    padding: 10px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de fuente */
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 button {
-    background-color: #5cb85c; /* Color verde para el botón */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    border-radius: 4px; /* Bordes redondeados */
-    height: 50px; /* Altura del botón */
-    padding: 0 15px; /* Espaciado horizontal interno */
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 30%;
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    font-size: 16px; /* Tamaño de fuente */
-    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
-}
-button:hover {
-    background-color: #4cae4c; /* Color más oscuro al pasar el mouse */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.messageTable {
-    flex: 5;
-    display: block;
-    text-align: center;
-    background-color: #ffffff; /* Fondo blanco para la tabla */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+button:hover {
+    background-color: #7c4dff;
+}
+
+.message-table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 table {
-    width: 100%; /* Asegura que la tabla ocupe todo el espacio */
-    border-collapse: collapse; /* Combina bordes de las celdas */
+    width: 100%;
+    border-collapse: collapse;
 }
 
 th, td {
-    border: 1px solid #ddd; /* Borde gris claro para las celdas */
-    padding: 10px; /* Espaciado interno de las celdas */
-    text-align: center; /* Alineación centrada */
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 th {
-    background-color: #5bc0de; /* Color de fondo para el encabezado */
-    color: white; /* Texto blanco en el encabezado */
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-weight: 600;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9; /* Color alternativo para las filas */
+tr:last-child td {
+    border-bottom: none;
 }
 
 tr:hover {
-    background-color: #f1f1f1; /* Color al pasar el mouse sobre las filas */
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-container, .message-table {
+        padding: 1rem;
+    }
 }

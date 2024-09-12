@@ -1,5 +1,5 @@
 
-import edu.eci.arep.virtualization.model.Message;
+import edu.eci.arep.model.Message;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 import static org.junit.jupiter.api.Assertions.assertEquals;

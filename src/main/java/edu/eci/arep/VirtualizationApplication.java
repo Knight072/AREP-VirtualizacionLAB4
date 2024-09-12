@@ -1,13 +1,9 @@
-package edu.eci.arep.virtualization;
+package edu.eci.arep;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-/**
- * Main class for the virtualization application.
- * @author Andrew Arias
- */
 @SpringBootApplication
 @EnableMongoRepositories
 public class VirtualizationApplication {

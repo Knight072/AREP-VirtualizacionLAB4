@@ -72,7 +72,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>edu.eci.arep.virtualization.App</mainClass>
+                    <mainClass>edu.eci.arep.App</mainClass>
                 </configuration>
             </plugin>
             <plugin>

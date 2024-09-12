@@ -1,7 +1,7 @@
-package edu.eci.arep.virtualization.controller;
 
-import edu.eci.arep.virtualization.model.Message;
-import edu.eci.arep.virtualization.service.MessageService;
+import edu.eci.arep.controller.MessageController;
+import edu.eci.arep.model.Message;
+import edu.eci.arep.service.MessageService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

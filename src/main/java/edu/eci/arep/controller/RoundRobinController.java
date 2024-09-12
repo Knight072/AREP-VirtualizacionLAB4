@@ -1,8 +1,8 @@
-package edu.eci.arep.virtualization.controller;
+package edu.eci.arep.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import edu.eci.arep.virtualization.model.Message;
+import edu.eci.arep.model.Message;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,10 +23,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
-/**
- * Round Robin controller
- * @author Andrés Arias
- */
 @RestController
 @RequestMapping("/app")
 public class RoundRobinController {
@@ -42,28 +38,14 @@ public class RoundRobinController {
 
     private AtomicInteger index = new AtomicInteger(0);
 
-    /**
-     * Getters for testing purposes
-     * @return logServiceUrls
-     */
     public List<String> getLogServiceUrls() {
         return logServiceUrls;
     }
 
-    /**
-     * Getters for testing purposes
-     * @return index
-     */
     public AtomicInteger getIndex() {
         return index;
     }
 
-    /**
-     * Class to define de roundRobin methodology
-     * @param message message to send
-     * @return ResponseEntity<String>
-     * @throws IOException if there is an error
-     */
     @GetMapping("/round-robin")
     public ResponseEntity<String> sendMessage(@RequestParam String message) throws IOException {
 

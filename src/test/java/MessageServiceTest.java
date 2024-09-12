@@ -1,14 +1,14 @@
-package edu.eci.arep.virtualization.service;
 
-import edu.eci.arep.virtualization.model.Message;
-import edu.eci.arep.virtualization.repository.MessageRepository;
+
+import edu.eci.arep.model.Message;
+import edu.eci.arep.repository.MessageRepository;
+import edu.eci.arep.service.MessageService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

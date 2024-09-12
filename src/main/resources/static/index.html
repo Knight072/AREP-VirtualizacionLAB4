@@ -3,35 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Envío de Mensaje</title>
+    <title>Sistema de Mensajería</title>
     <link rel="stylesheet" href="messages.css">
 </head>
 <body>
+<header>
+    <h1>Sistema de Mensajería</h1>
+</header>
 
-    <div class="container">
-        <div class="form-container">
-            <form id="messageForm">
-                <div class="form-group">
-                    <h1>Enviar Mensaje</h1>
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" required></textarea>
-                    <button type="submit" onclick="loadGetMsg(event)">Enviar</button>
-                </div>
-            </form>
-        </div>
+<main>
+    <section class="message-form">
+        <h2>Enviar Nuevo Mensaje</h2>
+        <form id="messageForm">
+            <div class="form-field">
+                <label for="mensaje">Tu mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" onclick="loadGetMsg(event)">Enviar Mensaje</button>
+            </div>
+        </form>
+    </section>
 
-        <div class="messageTable">
+    <section class="message-history">
+        <h2>Historial de Mensajes</h2>
+        <div class="table-container">
             <table id="messageTable">
                 <thead>
                 <tr>
-                    <th>Mensaje</th>
-                    <th>Fecha</th>
+                    <th>Contenido del Mensaje</th>
+                    <th>Fecha de Envío</th>
                 </tr>
                 </thead>
                 <tbody id="messageList"></tbody>
             </table>
         </div>
-    </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Sistema de Mensajería. Todos los derechos reservados.</p>
+</footer>
+
 <script src="message.js"></script>
 </body>
 </html>
